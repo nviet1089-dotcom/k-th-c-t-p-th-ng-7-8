@@ -1,3 +1,4 @@
+
 Nhật kí hằng ngày. ngày thứ 1 : 03/ 07/ 2026
 - Hôm nay làm được gì?
 Em đã hoàn thành các nội dung kiến thức của ngày 1 mà anh đã cho.
@@ -12,3 +13,4 @@ Em đã hoàn thành các nội dung kiến thức của ngày 1 mà anh đã ch
   - Do mới làm quen và sử dụng C# nên có chút chưa quen thuộc ạ.
 - Đã giải quyết thế nào/Cần Mentor hỗ trợ gì?
   - với vấn đề chưa quen thuộc về C# em đã tự khắc phục bằng cách nhờ AI giao cho các dạng bài tương tự để luyện tay, và kiểm tra bài sau khi đã code xong.
+  
