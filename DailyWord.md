@@ -30,4 +30,4 @@ Nội dung thực hành:
  -Việc xử lý thông báo lỗi trong setter cho chuẩn cũng là 1 điều mới và cần sử dụng nhiều lần.
 - Đã giải quyết thế nào/Cần Mentor hỗ trợ gì?
  -Cách giải quyết: Em đã tìm hiểu tài liệu về value keyword trong C# và thực hiện test các trường hợp biên (nhập 0, nhập số âm, nhập vượt mức) để đảm bảo class hoạt động đúng yêu cầu.
- -nhận thêm bài tập đc ai cho thêm để luyện kĩ năng hiều và sử dụng C#
+ -nhận thêm bài tập được AI cho thêm để luyện kĩ năng, hiều bài và cách sử dụng C#
