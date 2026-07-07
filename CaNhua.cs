@@ -1,37 +1,39 @@
 using System;
-//ngày 1 bai tap tạo class (thuộc tính và phương thức)
+using System.Collections.Generic; // list
+//ngày 1 2 bai tap tạo class (thuộc tính và phương thức) có su dung đóng gói
 class CanNhua
 {
-    public Double DungTichToiDa;
-    public Double ChieuCaoCan;
-    public Double MucNuocHienTai;
+    private Double DungTichToiDa;
+    private Double ChieuCaoCan;
+    private Double MucNuocHienTai;
 
+    public Double MucNuocHienTaiCuaCaNhuaThu1
+    {
+        get { return MucNuocHienTai;}
+        set
+        {
+            if ( value >= 0 && value <= DungTichToiDa )
+                MucNuocHienTai = value;
+            else 
+                Console.WriteLine($"loi: Muc Nuoc hien tai sai");
+        }
+    }
     public CanNhua(double SucChua, double ChieuCao)
     {
-        this. DungTichToiDa = SucChua;
-        this. ChieuCaoCan = ChieuCao;
-        this. MucNuocHienTai = 0;
+        this.DungTichToiDa = SucChua;
+        this.ChieuCaoCan = ChieuCao;
     }
-    public void DoNuocVao(double lit)
+        public void DoNuocVao(double lit)
     {
-        if (this. MucNuocHienTai + lit > this.DungTichToiDa )
+        if (this.MucNuocHienTai + lit > this.DungTichToiDa )
         {
-            this. MucNuocHienTai = this.DungTichToiDa;
+            this.MucNuocHienTai = this.DungTichToiDa;
             Console.WriteLine($"Nuoc tran !!!!!");
         }
         else
         {
             this.MucNuocHienTai += lit; 
-            Console.WriteLine($"Muc nuoc hien tai la: {this. MucNuocHienTai}.");
+            Console.WriteLine($"Muc nuoc hien tai la: {this.MucNuocHienTai}.");
         }
-    }
-}
-class Program
-{
-    static void Main(string[] args)
-    {
-        CanNhua CaNhuaThu1 = new CanNhua(5.5 , 30.0 );
-        CaNhuaThu1.DoNuocVao(2.6);
-        CaNhuaThu1.DoNuocVao(5.0);
     }
 }
