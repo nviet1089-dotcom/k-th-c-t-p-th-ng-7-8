@@ -15,7 +15,7 @@ class CanNhua
             if ( value >= 0 && value <= DungTichToiDa )
                 MucNuocHienTai = value;
             else 
-                Console.WriteLine($"lỗi: Muc Nuoc hien tai sai");
+                Console.WriteLine($"loi: Muc Nuoc hien tai sai");
         }
     }
     public CanNhua(double SucChua, double ChieuCao)
@@ -65,7 +65,7 @@ public class CumCamera : ThietBiDo , IConnectable
     }
     public void ConnectSerial()
     {
-        Console.WriteLine($"Camera: Đang mở luồng video từ cổng serial...");
+        Console.WriteLine($"Camera: Đang mo luong video tu cong serial...");
     }
 }
 // cam bien nhiet do
@@ -83,7 +83,7 @@ public class CamBienNhietDo : ThietBiDo , IConnectable
     }
     public void ConnectSerial()
     {
-        Console.WriteLine($"Cảm biến: Đang mở cổng COM để nhận tín hiệu số...");
+        Console.WriteLine($"Cam bien: dang mo cong COM de nhan tin hieu so...");
     }
 }
 
@@ -112,7 +112,7 @@ class Program
         }
         Console.WriteLine($"Muc Nuoc Hien Tai Trong Ca: {CaNhuaThu1.MucNuocHienTaiCuaCaNhuaThu1}");
 
-        Console.WriteLine("\n--- PHẦN 2: THIẾT BỊ ĐO ---");
+        Console.WriteLine("--- THIeT Bi ĐO ---");
         
         // Tạo danh sách các thiết bị (Dùng ThietBiDo để bao quát cả MaThietBi và TrangThai)
         List<ThietBiDo> danhSachThietBi = new List<ThietBiDo>();
@@ -123,13 +123,13 @@ class Program
         foreach (var thietBi in danhSachThietBi)
         {
             Console.WriteLine("-----------------------------");
-            // 1. Hiện mã thiết bị
+            //  Hiện mã thiết bị
             thietBi.MaThietBi();
             
-            // 2. Hiện trạng thái
+            // Hiện trạng thái
             thietBi.TrangThai();
             
-            // 3. Kiểm tra và hiện Interface (ép kiểu)
+            // Kiểm tra và hiện Interface (ép kiểu)
             if (thietBi is IConnectable thietBiKetNoi)
             {
                 thietBiKetNoi.ConnectSerial();
