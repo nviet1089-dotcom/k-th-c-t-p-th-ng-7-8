@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic; // list
+using System.Linq;
 public class CumCamera : ThietBiDo , IConnectable
 {
-    public string MaThietBiCamera {get; set; }
+    public string MaThietBiCamera {get; set; } = string.Empty;
     public override void MaThietBi()
     {
         base.MaThietBi();

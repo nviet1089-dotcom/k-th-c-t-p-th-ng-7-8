@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic; // list
+using System.Linq;
 //ngày 1 2 bai tap tạo class (thuộc tính và phương thức) có su dung đóng gói
 class CanNhua
 {

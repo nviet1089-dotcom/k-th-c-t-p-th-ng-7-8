@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic; // list
+using System.Linq;
 // --- NƠI CHẠY CHƯƠNG TRÌNH ---
 class Program
 {
@@ -10,8 +11,8 @@ class Program
         while (true)
         {
             Console.WriteLine("Nhap muc nuoc hien tai (0 - 5.5):");
-            string input = Console.ReadLine();
-            if (double.TryParse(input, out double MucNuoc) && MucNuoc >= 0 && MucNuoc <= 5.5)
+            string inputMucNuoc = Console.ReadLine() ?? string.Empty; // Sửa lỗi tiềm ẩn null
+            if (double.TryParse(inputMucNuoc, out double MucNuoc) && MucNuoc >= 0 && MucNuoc <= 5.5)
             {
                 CaNhuaThu1.MucNuocHienTaiCuaCaNhuaThu1 = MucNuoc;
                 Console.WriteLine("Thong tin da duoc tiep nhan");
@@ -26,28 +27,62 @@ class Program
 
         Console.WriteLine("--- THIeT Bi ĐO ---");
         
-        //danh sách các thiết bị
         List<ThietBiDo> danhSachThietBi = new List<ThietBiDo>();
         
         danhSachThietBi.Add(new CumCamera { MaThietBiCamera = "CAM-001" });
         danhSachThietBi.Add(new CamBienNhietDo { MaThietBiCamBien = "SEN-001" });
-
-        foreach (var thietBi in danhSachThietBi)
+        
+        if (danhSachThietBi != null && danhSachThietBi.Count > 0)
         {
-            Console.WriteLine("-----------------------------");
-            //  Hiện mã thiết bị
-            thietBi.MaThietBi();
+           foreach (var thietBi in danhSachThietBi)
+           {
+                Console.WriteLine("------------LOADING-----------");
+                thietBi.MaThietBi();
+                thietBi.TrangThai();
             
-            // Hiện trạng thái
-            thietBi.TrangThai();
+                if (thietBi is IConnectable thietBiKetNoi)
+                {
+                    thietBiKetNoi.ConnectSerial();
+                }
+           }
+        }
+
+        List<double> LichSuDo = new List<double>();
+        
+        string input; 
+        
+        Console.WriteLine("\n--- NHAP NHIET DO ---");
+        while(true)
+        {
+            Console.Write("nhap nhiet do do (nhap 'ok' de dung): ");
             
-            // Kiểm tra và hiện Interface (ép kiểu)
-            if (thietBi is IConnectable thietBiKetNoi)
+            // Gán giá trị vào biến 'input' đã khai báo ở trên
+            input = Console.ReadLine() ?? string.Empty; 
+            
+            if(input.ToLower() == "ok") break;
+
+            if(double.TryParse(input, out double nhietDo))
             {
-                thietBiKetNoi.ConnectSerial();
+               LichSuDo.Add(nhietDo);
             }
+            else
+            {
+               Console.WriteLine("vui long nhap lai du lieu"); 
+            }
+        }
+
+        if(LichSuDo.Count > 0) 
+        {
+            double trungbinh = LichSuDo.Average();
+            double nhietdocaonhat = LichSuDo.Max();
+            Console.WriteLine($"trung binh nhiet do:{trungbinh:F2}");
+            Console.WriteLine($"nhiet do lon nhat do duoc:{nhietdocaonhat}");
+        }
+        else
+        {
+            Console.Write($"khong the tinh duoc!!!");
         }
 
         Console.ReadLine();
     }
-}  
+}
